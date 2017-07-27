@@ -2,11 +2,11 @@
 **Dockerfile for building lightweight nginx + rtmp module for replicating streams**
 
 ## Usage
-`docker run -d -p 1935:1935 -p 80:8000 dvdgiessen/nginx-rtmp-docker`
+`docker run -d -p 1935:1935 -p 80:8000 tomasolander/nginx-rtmp-docker`
 
 If you want to use a custom nginx.conf file, create a volume mapping:
 
-`docker run -d -p 1935:1935 -p 80:8000 -v /path/to/my/custom/nginx.conf:/etc/nginx/nginx.conf dvdgiessen/nginx-rtmp-docker`
+`docker run -d -p 1935:1935 -p 80:8000 -v /path/to/my/custom/nginx.conf:/etc/nginx/nginx.conf tomasolander/nginx-rtmp-docker`
 
 ## Troubleshooting
 If you encounter an error like this:
@@ -17,6 +17,6 @@ If you encounter an error like this:
 Then you are running an outdated version of Docker. See [the Docker documentation](https://docs.docker.com/engine/installation/) on how to get the latest version.
 
 ## More info
-Docker Hub: https://hub.docker.com/r/dvdgiessen/nginx-rtmp-docker/
+Docker Hub: https://hub.docker.com/r/tomasolander/nginx-rtmp-docker/
 
 Based on setup described on the OBS forums [here](https://obsproject.com/forum/resources/how-to-set-up-your-own-private-rtmp-server-using-nginx.50/).
