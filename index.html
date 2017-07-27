@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Stream</title>
+		<link href="//vjs.zencdn.net/5.8/video-js.min.css" rel="stylesheet">
+	</head>
+	<body>
+		<video id="video" height="480" width="720" controls preload="none"></video>
+		<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+		<script>
+			if (Hls.isSupported() && window.location.hash) {
+				var video = document.getElementById("video");
+				var hls = new Hls();
+				var url = "/hls/" + window.location.hash.slice(1) + ".m3u8";
+				hls.loadSource(url);
+				hls.attachMedia(video);
+				hls.on(Hls.Events.MANIFEST_PARSED, function() { video.play() } );
+			}
+		</script>
+	</body>
+</html>

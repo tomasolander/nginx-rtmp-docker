@@ -95,6 +95,11 @@ RUN ln -sf /dev/stdout /var/log/nginx/access.log && \
 # Set up config file
 COPY nginx.conf /etc/nginx/nginx.conf
 
+# Set up serving directory
+RUN mkdir /srv/nginx && mkdir /srv/nginx/hls
+RUN chmod -R 770 /srv/nginx && chown -R ${USER}:${USER} /srv/nginx
+COPY index.html /srv/nginx/index.html
+
 # Set permissions
 RUN chmod 444 /etc/nginx/nginx.conf && \
     chown ${USER}:${USER} /var/log/nginx /var/run/nginx /var/lock/nginx /tmp/nginx-client-body && \
@@ -103,4 +108,5 @@ RUN chmod 444 /etc/nginx/nginx.conf && \
 # Run the application
 USER ${USER}
 EXPOSE 1935
+EXPOSE 8000
 CMD ["nginx", "-g", "daemon off;"]

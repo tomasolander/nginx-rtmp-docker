@@ -2,11 +2,11 @@
 **Dockerfile for building lightweight nginx + rtmp module for replicating streams**
 
 ## Usage
-`docker run -dp 1935:1935 dvdgiessen/nginx-rtmp-docker`
+`docker run -d -p 1935:1935 -p 80:8000 dvdgiessen/nginx-rtmp-docker`
 
 If you want to use a custom nginx.conf file, create a volume mapping:
 
-`docker run -dp 1935:1935 -v /path/to/my/custom/nginx.conf:/etc/nginx/nginx.conf dvdgiessen/nginx-rtmp-docker`
+`docker run -d -p 1935:1935 -p 80:8000 -v /path/to/my/custom/nginx.conf:/etc/nginx/nginx.conf dvdgiessen/nginx-rtmp-docker`
 
 ## Troubleshooting
 If you encounter an error like this:
