@@ -2,11 +2,25 @@
 **Dockerfile for building lightweight nginx + rtmp module for replicating streams**
 
 ## Usage
+
+### Running
 `docker run -d -p 1935:1935 -p 80:8000 tomasolander/nginx-rtmp-docker`
 
 If you want to use a custom nginx.conf file, create a volume mapping:
 
 `docker run -d -p 1935:1935 -p 80:8000 -v /path/to/my/custom/nginx.conf:/etc/nginx/nginx.conf tomasolander/nginx-rtmp-docker`
+
+### Broadcasting
+Create a new profile in OBS and change your broadcast settings:
+
+- **Stream type:** Custom Streaming Server
+- **URL:** rtmp://`<your server ip>`/live
+- **Stream key:** `<whatever you like>`
+  
+### Watching
+You can view the stream via HLS in your browser:
+
+http://`<your server ip>`/#`<your stream key>`
 
 ## Troubleshooting
 If you encounter an error like this:
